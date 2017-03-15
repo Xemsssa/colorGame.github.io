@@ -24,35 +24,59 @@ var randomColor = getRandomColor();
 var comment = document.getElementById("comment");
 var length = boxes.length;
 
+// var h1 = document.getElementsByTagName('h1');
+
+// var h1 = document.querySelector('h1');
+var header = document.getElementById('header');
+
+// alert(h1);
+
 goalColor.textContent = randomColor;
 
-for (var i = 0; i < length; i++) {
-    // boxes[i].style.backgroundColor = "blue";
-    boxes[i].style.backgroundColor = colors[i];
+var button = document.querySelector("button");
 
-    boxes[i].addEventListener('click', function () {
-        // alert("click");
-        // alert(this.style.backgroundColor);
+button.addEventListener('click', function () {
+    // alert("click");
+    colors = generateRandomColors(numberOfBox);
+    randomColor = getRandomColor();
+    goalColor.textContent = randomColor;
 
-        if (this.style.backgroundColor == randomColor) {
-            // alert("Gotcha");
-            comment.textContent = "Gotcha!";
+    setBoxesWithColor();
+})
 
-            changeColors();
-        } else  {
-            // this.style.display = "none";
-            this.style.backgroundColor = "#2d2d30";
-            // this.style.display = "hidden";
-            comment.textContent = "Try again :)";
+setBoxesWithColor();
 
-        }
-    })
+function setBoxesWithColor() {
+    for (var i = 0; i < length; i++) {
+        // boxes[i].style.backgroundColor = "blue";
+        boxes[i].style.backgroundColor = colors[i];
+
+        boxes[i].addEventListener('click', function () {
+            // alert("click");
+            // alert(this.style.backgroundColor);
+
+            if (this.style.backgroundColor == randomColor) {
+                // alert("Gotcha");
+                comment.textContent = "Gotcha!";
+
+                changeColors();
+                // h1.style.backgroundColor = randomColor;
+                header.style.backgroundColor = randomColor;
+            } else  {
+                // this.style.display = "none";
+                this.style.backgroundColor = "#2d2d30";
+                // this.style.display = "hidden";
+                comment.textContent = "Try again :)";
+
+            }
+        })
+    }
 }
 
 // show user winner color
 function changeColors() {
     for (var i = 0; i < length; i++) {
-        boxes[i].style.backgroundColor = randomColor;
+        boxes[i].style.background = randomColor;
     }
 }
 

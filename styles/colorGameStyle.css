@@ -1,3 +1,8 @@
+* {
+    padding: 0;
+    margin: 0;
+}
+
 body {
     background: #2d2d30;
     color: white;
@@ -7,7 +12,16 @@ body {
     /*color: white;*/
 /*}*/
 
+#stripe {
+    /*background: linear-gradient(to right, red, yellow, orange, green, blue, purple );*/
+    background-color: #fff;
+    color: black;
+    height: 30px;
+    text-align: center;
+}
+
 .container {
+    /*padding: 10px;*/
     margin: 0 auto;
     max-width: 650px;
     /*display: inline-block;*/
