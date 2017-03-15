@@ -3,69 +3,91 @@
  */
 
 // alert("connect");
-// var color = Math.ceil(Math.random(0, 255));
 
 // number of box
 var numberOfBox = 6;
 
-// get colors for boxes
-// var colors = ["rgb(255, 0, 0)", "rgb(0, 255, 0)", "rgb(0, 0, 255)", "rgb(255, 0, 0)", "rgb(0, 255, 0)", "rgb(0, 0, 255)"];
-var colors = generateRandomColors(numberOfBox);
-
-// alert(colors);
-// var box = document.querySelector(".box");
-// box.style.background = "red";
-
 // select all boxes
 var boxes = document.querySelectorAll(".box");
+var length = boxes.length;
+var colors = generateRandomColors(numberOfBox);
 var goalColor = document.getElementById('goalColor');
-// var randomColor = colors[1];
 var randomColor = getRandomColor();
 var comment = document.getElementById("comment");
-var length = boxes.length;
-
-// var h1 = document.getElementsByTagName('h1');
-
-// var h1 = document.querySelector('h1');
 var header = document.getElementById('header');
-
-// alert(h1);
 
 goalColor.textContent = randomColor;
 
-var button = document.querySelector("button");
+var newGame = document.getElementById("newGame");
+var easy = document.getElementById("easy");
+var hard = document.getElementById("hard");
 
-button.addEventListener('click', function () {
-    // alert("click");
+easy.onclick = function () {
+    numberOfBox = 3;
+    hard.classList.remove("active");
+    easy.classList.add("active");
+
+    colors = generateRandomColors(numberOfBox);
+
+    randomColor = getRandomColor();
+    goalColor.textContent = randomColor;
+
+    // use numberOfBox or length
+    for (var i = 0; i < length ; i++) {
+
+        if(colors[i]) {
+            boxes[i].style.background = colors[i];
+        }
+        else {
+            boxes[i].style.display = "none";
+        }
+
+    }
+
+};
+
+hard.addEventListener("click", function () {
+    // length = 6;
+
+    easy.classList.remove("active");
+    hard.classList.add("active");
+
+    colors = generateRandomColors(numberOfBox);
+
+    randomColor = getRandomColor();
+    goalColor.textContent = randomColor;
+
+    for (var i = 0; i < length ; i++) {
+            boxes[i].style.background = colors[i];
+            boxes[i].style.display = "inline-block";
+    }
+
+    setBoxesWithColor();
+});
+
+newGame.addEventListener('click', function () {
     colors = generateRandomColors(numberOfBox);
     randomColor = getRandomColor();
     goalColor.textContent = randomColor;
 
-    setBoxesWithColor();
-})
+    setBoxesWithColor(length);
+});
 
 setBoxesWithColor();
 
 function setBoxesWithColor() {
     for (var i = 0; i < length; i++) {
-        // boxes[i].style.backgroundColor = "blue";
         boxes[i].style.backgroundColor = colors[i];
 
         boxes[i].addEventListener('click', function () {
-            // alert("click");
-            // alert(this.style.backgroundColor);
 
             if (this.style.backgroundColor == randomColor) {
-                // alert("Gotcha");
                 comment.textContent = "Gotcha!";
 
                 changeColors();
-                // h1.style.backgroundColor = randomColor;
                 header.style.backgroundColor = randomColor;
-            } else  {
-                // this.style.display = "none";
+            } else {
                 this.style.backgroundColor = "#2d2d30";
-                // this.style.display = "hidden";
                 comment.textContent = "Try again :)";
 
             }
@@ -80,25 +102,17 @@ function changeColors() {
     }
 }
 
-// get radom color witch need to find
+// get random color witch need to find
 function getRandomColor() {
-    // var color = Math.ceil(Math.random(0, 255));
-    // alert(length);
     var color = Math.floor(Math.random() * boxes.length);
-    // alert(color);
+
     return colors[color];
 }
 
 function generateRandomColors(num) {
     var array = [];
 
-    for (var i = 0; i <=  num; i++) {
-        //
-        // var red = Math.floor(Math.random() * 256);
-        // var green = Math.floor(Math.random() * 256);
-        // var blue = Math.floor(Math.random() * 256);
-
-        // array.push( "rgb(" + red + ", " + green + ", " + blue + ")");
+    for (var i = 0; i <  num; i++) {
         array.push(generateRandomColor());
     }
 

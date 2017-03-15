@@ -6,6 +6,7 @@
 body {
     background: #2d2d30;
     color: white;
+    font-family: "Apple SD Gothic Neo", "Malgun Gothic", "Nanum Gothic", Dotum, sans-serif;
 }
 
 /*h1, p {*/
@@ -16,7 +17,7 @@ body {
     /*background: linear-gradient(to right, red, yellow, orange, green, blue, purple );*/
     background-color: #fff;
     color: black;
-    height: 30px;
+    height: 45px;
     text-align: center;
 }
 
@@ -24,11 +25,13 @@ body {
     /*padding: 10px;*/
     margin: 0 auto;
     max-width: 650px;
+    height: 80px;
+    padding: 10px;
     /*display: inline-block;*/
 }
 
 .box {
-    border: 1px solid darkgray;
+    border: 1px solid royalblue;
     border-radius: 10px;
     display: inline-block;
     /*margin: 5px;*/
@@ -37,4 +40,23 @@ body {
     padding-bottom: 30%;
     /*width: 150px;*/
     width: 30%;
+}
+
+button {
+    background: none;
+    /*margin: 0 auto;*/
+    border: none;
+    padding: 15px;
+    font-weight: bold;
+    /*font-family: "Apple SD Gothic Neo", "Malgun Gothic", "Nanum Gothic", Dotum, sans-serif;*/
+}
+
+button:hover {
+    background-color: royalblue;
+    color: white;
+}
+
+.active {
+    background: royalblue;
+    color: white;
 }
