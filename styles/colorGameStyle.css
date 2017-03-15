@@ -1,0 +1,26 @@
+body {
+    background: #2d2d30;
+    color: white;
+}
+
+/*h1, p {*/
+    /*color: white;*/
+/*}*/
+
+.container {
+    margin: 0 auto;
+    max-width: 650px;
+    /*display: inline-block;*/
+}
+
+.box {
+    border: 1px solid darkgray;
+    border-radius: 10px;
+    display: inline-block;
+    /*margin: 5px;*/
+    margin: 1%;
+    /*height: 150px;*/
+    padding-bottom: 30%;
+    /*width: 150px;*/
+    width: 30%;
+}
